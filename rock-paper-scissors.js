@@ -12,8 +12,31 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    return prompt("Please choose one of: rock, paper, scissors.")
+    return prompt("Please choose one of: rock, paper, scissors.");
 }
 
+function playRound(humanChoice, computerChoice){
+    let humanChoiceLower = humanChoice.toLowerCase()
+    if (humanChoiceLower === computerChoice){
+        console.log("It's a draw!");
+    }
+    else if ("rockscissorspaperrock".includes(humanChoiceLower + computerChoice)){
+        console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        humanScore++;
+    }
+    else {
+        console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        computerScore++;
+    }    
+}
+
+/*
 let humanScore = 0,
     computerScore = 0;
+
+for (let i = 0; i <= 5; i++){
+    console.log(playRound("scissors", getComputerChoice()));
+    console.log(humanScore);
+    console.log(computerScore);
+}
+*/
