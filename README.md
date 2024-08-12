@@ -24,5 +24,5 @@ To simulate the computer's move:
 To find the result of a round:
 
 1. If the choices are equal, the round is a draw
-1. Else if the string `"rspr"` contains `userChoice + computerChoice`, then the user wins
+1. Else if the string `"rockscissorspaperrock"` contains `userChoice + computerChoice`, then the user wins
 1. Else, the computer wins
