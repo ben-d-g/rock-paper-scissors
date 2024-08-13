@@ -39,6 +39,13 @@ function playRound(humanChoice, computerChoice){
 let humanScore = 0,
     computerScore = 0;
 
+//add scores to page
+const humanScoreDisplay = document.querySelector("#humanScore");
+humanScoreDisplay.textContent = humanScore;
+
+const computerScoreDisplay = document.querySelector("#computerScore");
+computerScoreDisplay.textContent = computerScore;
+
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
@@ -54,8 +61,20 @@ buttons.forEach((button) => {
         }
 
         //display results of round
-        const resultDisplay = document.createElement("p")
+        let resultDisplay = document.createElement("p")
         resultDisplay.textContent = roundResult;
         roundResultDisplay.appendChild(resultDisplay);
+
+        //update scores
+        if (roundResult == "human"){
+            humanScore++;
+            const humanScoreDisplay = document.querySelector("#humanScore");
+            humanScoreDisplay.textContent = humanScore;
+        }
+        else if (roundResult == "computer"){
+            computerScore++;
+            const computerScoreDisplay = document.querySelector("#computerScore");
+            computerScoreDisplay.textContent = computerScore;
+        }
     });
 });
