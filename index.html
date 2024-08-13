@@ -6,30 +6,36 @@
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
     <script src="./rock-paper-scissors.js" defer></script>
+    <link rel="stylesheet", href="./style.css">
   </head>
 
   <body>
-    <div id="game">
-      <p>The Winner is:</p>
-      <div id="roundResultDisplay">
-        <p></p>
+    <div id="container">
+      <div id="game">
+        <div id="roundResults">
+          <p>The Winner is:</p>
+          <div id="roundResultDisplay">
+            <p>-</p>
+          </div>
+        </div>
+        <div id="userChoice">
+          <button id="rock">Rock</button>
+          <button id="paper">Paper</button>
+          <button id="scissors">Scissors</button>
+        </div>
       </div>
-      <div id="userChoice">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+      <div id="gameResults">
+        <div id="human">
+          <p>Human:</p>
+          <p id="humanScore"></p>
+        </div>
+        <div id="computer">
+          <p>Computer:</p>
+          <p id="computerScore"></p>
+        </div>
       </div>
     </div>
-    <div id="gameResults">
-      <div id="human">
-        <p>Human:</p>
-        <p id="humanScore"></p>
-      </div>
-      <div id="computer">
-        <p>Computer:</p>
-        <p id="computerScore"></p>
-      </div>
-    </div>
+      
   </body>
 
 </html>
