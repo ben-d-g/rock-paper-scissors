@@ -19,22 +19,36 @@ function playRound(humanChoice, computerChoice){
     let humanChoiceLower = humanChoice.toLowerCase()
     if (humanChoiceLower === computerChoice){
         console.log("It's a draw!");
+
+        return "draw";
     }
     else if ("rockscissorspaperrock".includes(humanChoiceLower + computerChoice)){
         console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
         //humanScore++;
+
+        return "human";
     }
     else {
         console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
         //computerScore++;
+
+        return "computer";
     }    
 }
+
+let humanScore = 0,
+    computerScore = 0;
 
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
         //console.log(e.srcElement.id)
-        playRound(e.srcElement.id, getComputerChoice());
+        let roundResult = playRound(e.srcElement.id, getComputerChoice());
+
+        const display = document.querySelector("#display");
+        const resultDisplay = document.createElement("p")
+        resultDisplay.textContent = roundResult;
+        display.appendChild(resultDisplay);
     });
 });
