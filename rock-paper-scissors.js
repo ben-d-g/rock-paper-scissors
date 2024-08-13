@@ -15,42 +15,26 @@ function getHumanChoice(){
     return prompt("Please choose one of: rock, paper, scissors.");
 }
 
-
-
-function playGame(){
-    let humanScore = 0,
-        computerScore = 0;
-
-    function playRound(humanChoice, computerChoice){
-        let humanChoiceLower = humanChoice.toLowerCase()
-        if (humanChoiceLower === computerChoice){
-            console.log("It's a draw!");
-        }
-        else if ("rockscissorspaperrock".includes(humanChoiceLower + computerChoice)){
-            console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
-            humanScore++;
-        }
-        else {
-            console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
-            computerScore++;
-        }    
+function playRound(humanChoice, computerChoice){
+    let humanChoiceLower = humanChoice.toLowerCase()
+    if (humanChoiceLower === computerChoice){
+        console.log("It's a draw!");
     }
-
-    for (let i = 0; i <= 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log("The current scores are:")
-        console.log("User: " + humanScore);
-        console.log("Computer: " + computerScore);
+    else if ("rockscissorspaperrock".includes(humanChoiceLower + computerChoice)){
+        console.log("You Win! " + humanChoice + " beats " + computerChoice + "!");
+        //humanScore++;
     }
-
-    if (humanScore > computerScore){
-        console.log("Well done! You won!");
-    }
-    else if (computerScore > humanScore){
-        console.log("Tough luck! The computer won!");
-    }
-    else{
-        console.log("It was a draw! We should play again.")
-    }
-
+    else {
+        console.log("You Lose! " + computerChoice + " beats " + humanChoice + "!");
+        //computerScore++;
+    }    
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        //console.log(e.srcElement.id)
+        playRound(e.srcElement.id, getComputerChoice());
+    });
+});
