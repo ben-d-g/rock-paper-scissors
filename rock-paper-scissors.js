@@ -76,5 +76,27 @@ buttons.forEach((button) => {
             const computerScoreDisplay = document.querySelector("#computerScore");
             computerScoreDisplay.textContent = computerScore;
         }
+
+        //end game if either player's score is 5
+        if (humanScore >= 5 || computerScore >= 5){
+            let winner;
+            if (humanScore > computerScore){
+                winner = "human";
+            }
+            else{
+                winner = "computer";
+            }
+
+            //remove all children of #game
+            let game = document.querySelector("#game")
+            while (game.firstChild){
+                game.firstChild.remove();
+            }
+
+            //display message of winner
+            const winnerMessage = document.createElement("p");
+            winnerMessage.textContent = "The game is over. The " + winner +"s have won.";
+            game.appendChild(winnerMessage)
+        }
     });
 });
