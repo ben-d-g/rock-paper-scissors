@@ -43,12 +43,19 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        //console.log(e.srcElement.id)
+        //play round
         let roundResult = playRound(e.srcElement.id, getComputerChoice());
 
-        const display = document.querySelector("#display");
+        const roundResultDisplay = document.querySelector("#roundResultDisplay");
+    
+        //remove all children of roundResultDisplay
+        while (roundResultDisplay.firstChild){
+            roundResultDisplay.firstChild.remove();
+        }
+
+        //display results of round
         const resultDisplay = document.createElement("p")
         resultDisplay.textContent = roundResult;
-        display.appendChild(resultDisplay);
+        roundResultDisplay.appendChild(resultDisplay);
     });
 });
